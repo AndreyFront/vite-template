@@ -1,0 +1,21 @@
+// Colors
+
+:root {
+    --primary-bg-color: #242424;
+    --primary-text-color: #fff;
+    --primary-border-color: #fff;
+    --primary-hover-color: #9499ff;
+}
+
+$primary-bg-color: var(--primary-bg-color);
+$primary-text-color: var(--primary-text-color);
+$primary-hover-color: var(--primary-hover-color);
+$primary-border-color: var(--primary-border-color);
+
+// Fonts
+
+$primary-font: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+
+// Other
+
+$transition-time: 0.3s;

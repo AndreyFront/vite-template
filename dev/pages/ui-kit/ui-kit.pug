@@ -1,0 +1,48 @@
+include ../../assets/ui/title
+include ../../assets/ui/checkbox
+include ../../assets/ui/radio
+include ../../assets/ui/btn
+include ../../assets/ui/input
+include ../../assets/ui/textarea
+include ../../assets/ui/select
+
+main.ui-kit
+    h1.ui-kit__title UI Kit
+    .ui-kit__block-btns
+        a.ui-kit__btn(href="/index.html") Главная
+        a.ui-kit__btn(href="/pages.html") Страницы
+        a.ui-kit__btn(href="/components.html") Компоненты
+    .ui-kit__content
+        .ui-kit__box
+            +title('h1', 'Title H1').components__title
+            +title('h2', 'Title H2')
+            +title('h3', 'Title H3')
+            +title('h4', 'Title H4')
+        .ui-kit__box
+            +checkbox
+            +checkbox({ text: 'Checkbox', checked: true, classes: 'components__checkbox' })
+            +checkbox({ text: 'Checkbox', disabled: true })
+        .ui-kit__box
+            +radio
+            +radio({ text: 'Radio', checked: true, classes: 'components__radio' })
+            +radio({ text: 'Radio', disabled: true })
+        .ui-kit__box
+            +btn
+            +btn({ icon: true, positionIcon: 'right' })
+                include ../../assets/icons/iconVite
+            +btn({ icon: true })
+                include ../../assets/icons/iconVite
+            +btn({ type: 'link', name: 'Link btn', classes: 'btn--primary' })
+            +btn({ name: 'Button disabled', disabled: true })
+        .ui-kit__box
+            +input({ messageText: 'Подпись к полю', messageIsShow: true })
+            +input({ messageText: 'Сообщение об ошибке', classes: 'input--error' })
+            +input({ disabled: true })
+        .ui-kit__box
+            +textarea({ messageText: 'Подпись к полю', messageIsShow: true })
+            +textarea({ messageText: 'Сообщение об ошибке', classes: 'textarea--error' })
+            +textarea({ disabled: true })
+        .ui-kit__box
+            +select
+            +select({ activeIndex: 2 })
+            +select({ disabled: true })

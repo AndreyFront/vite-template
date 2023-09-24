@@ -1,0 +1,49 @@
+@import '@/assets/styles/main';
+
+.components {
+    min-height: 100dvh;
+    padding: 2rem;
+
+    &__title {
+        font-size: 3.2em;
+        line-height: 1.1em;
+        color: rgba(255, 255, 255, 0.87);
+    }
+
+    &__content {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 50px;
+        margin-top: 100px;
+    }
+
+    &__box {
+        display: grid;
+        align-content: start;
+        grid-row-gap: 20px;
+    }
+
+    &__block-btns {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+
+    &__btn {
+        padding: 0.6em 1.2em;
+        font-size: 1em;
+        font-weight: 500;
+        font-family: inherit;
+        border-radius: 8px;
+        border: 1px solid transparent;
+        text-decoration: none;
+        background-color: #1a1a1a;
+        cursor: pointer;
+        color: $primary-text-color;
+        transition: border-color $transition-time;
+
+        &:hover {
+            border-color: #fff;
+        }
+    }
+}

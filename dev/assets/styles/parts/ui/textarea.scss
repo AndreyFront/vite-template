@@ -1,0 +1,57 @@
+.textarea {
+    position: relative;
+
+    &.disabled {
+        opacity: 0.6;
+        pointer-events: none;
+    }
+
+    &--error {
+        .textarea {
+            &__field {
+                border-color: red;
+            }
+
+            &__message {
+                display: inline-block;
+                color: red;
+            }
+        }
+    }
+
+    &--show-message .textarea__message {
+        display: inline-block;
+    }
+
+    &__field {
+        height: 120px;
+        width: 100%;
+        padding: 16px;
+        resize: none;
+        font-size: 16px;
+        outline: none;
+        background-color: transparent;
+        border: none;
+        border: 1px solid;
+        border-color: #bebebe;
+        color: $primary-text-color;
+        border-radius: 5px;
+        transition: border-color $transition-time;
+
+        &:focus {
+            border-color: $primary-border-color;
+        }
+
+        &::placeholder {
+            color: #d2d2d2;
+            font-size: 16px;
+        }
+    }
+
+    &__message {
+        display: none;
+        font-size: 12px;
+        color: #d2d2d2;
+        transition: color $transition-time;
+    }
+}
