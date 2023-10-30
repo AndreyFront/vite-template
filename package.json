@@ -5,8 +5,8 @@
     "type": "module",
     "scripts": {
         "dev": "vite",
-        "format": "npx prettier --write . & npx prettier --write './dev/**/*.pug'",
-        "build": "npm run format && vite build && npx prettier --write './build/**/*.html'",
+        "format": "npx prettier --write . & npx prettier --write ./dev/**/*.pug",
+        "build": "vite build && npx prettier --write ./build/**/*.html",
         "preview": "vite preview"
     },
     "browserslist": [
@@ -18,18 +18,23 @@
         "prettier": "3.0.3",
         "pug": "^3.0.2",
         "sass": "^1.67.0",
+        "sharp": "^0.32.6",
+        "svgo": "^3.0.2",
         "vite": "^4.4.5",
+        "vite-plugin-image-optimizer": "^1.1.7",
         "vite-plugin-pug": "^0.3.2"
     },
     "dependencies": {
-        "axios": "^1.5.0",
+        "animejs": "^3.2.1",
+        "axios": "^1.6.0",
         "imask": "^7.1.3",
         "lightgallery": "^2.7.2",
         "normalize.css": "^8.0.1",
         "nouislider": "^15.7.1",
         "resize-observer-polyfill": "^1.5.1",
+        "scroll-lock": "^2.1.5",
         "simplebar": "^6.2.5",
-        "swiper": "^10.2.0",
-        "vanilla-lazyload": "^17.8.4"
+        "swiper": "^10.3.1",
+        "vanilla-lazyload": "^17.8.5"
     }
 }

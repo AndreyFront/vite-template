@@ -1,7 +1,8 @@
 -
     const defaultInputProps = {
         type: 'text', 
-        name: 'input', 
+        name: 'input',
+        title: 'Название поля',
         placeholder: 'Введите текст', 
         disabled: false,
         classes: '',
@@ -13,7 +14,8 @@ mixin input(props = defaultInputProps)
     -
         const checkProps = {
             type: props.type ? props.type : defaultInputProps.type, 
-            name: props.name ? props.name : defaultInputProps.name, 
+            name: props.name ? props.name : defaultInputProps.name,
+            title: props.title ? props.title : defaultInputProps.title, 
             placeholder: props.placeholder ? props.placeholder : defaultInputProps.placeholder, 
             disabled: props.disabled ? props.disabled : defaultInputProps.disabled,
             classes: props.classes ? props.classes : defaultInputProps.classes,
@@ -24,6 +26,7 @@ mixin input(props = defaultInputProps)
     .input(
         class=`${checkProps.classes} ${checkProps.disabled ? 'disabled' : ''} ${checkProps.messageIsShow ? 'input--show-message' : ''}`
     )
+        span.input__title= checkProps.title
         input.input__field(
             type=checkProps.type,
             name=checkProps.name,

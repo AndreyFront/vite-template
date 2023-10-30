@@ -18,8 +18,8 @@
         display: none;
 
         &:checked ~ .checkbox__decore::before {
-            background-color: $primary-hover-color;
-            border-color: $primary-border-color;
+            background-color: #9499ff;
+            border-color: rgba(255, 255, 255, 0.1);
         }
 
         &:checked ~ .checkbox__decore::after {
@@ -29,9 +29,9 @@
 
     &__text {
         font-size: 20px;
-        color: $primary-text-color;
+        color: #fff;
         line-height: 1.6em;
-        transition: color $transition-time;
+        transition: color $tr-time;
     }
 
     &__decore {
@@ -58,8 +58,8 @@
             border: 1px solid #898989;
             background-color: #fff;
             transition:
-                border-color $transition-time,
-                background-color $transition-time;
+                border-color $tr-time,
+                background-color $tr-time;
         }
 
         &::after {
@@ -70,7 +70,7 @@
             background-size: contain;
             background-position: center;
             opacity: 0;
-            transition: opacity $transition-time;
+            transition: opacity $tr-time;
         }
     }
 }

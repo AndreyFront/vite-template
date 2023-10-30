@@ -1,9 +1,60 @@
-main.components
-    h1.components__title Компоненты
-    .components__block-btns
-        a.components__btn(href="/index.html") Главная
-        a.components__btn(href="/pages.html") Страницы
-        a.components__btn(href="/ui-kit.html") UI kit
-    .components__content
-        .components__box
-            //- Компонент
+extends ../../assets/layouts/dev-layout
+
+block vars
+    -
+        const props = {
+            title: 'Компоненты',
+        }
+
+block content
+    include ../../assets/ui/btn
+    include ../../assets/modal-windows/modal
+
+    .components-page
+        .components-page__box
+            +btn({ name: 'Default modal' }, {'data-hystmodal': '#modal'})
+        .components-page__box(
+            data-modal-gallery="gallery",
+            style="display: flex; flex-wrap: wrap; gap: 20px"
+        )
+            a.components-page__m-gallery(
+                href="./images/examples/image-1.jpg",
+                data-modal-gallery="el-gallery"
+            ) 
+                img.lazy(
+                    data-src="./images/examples/image-1.jpg",
+                    data-external-thumb-image="./images/examples/image-1.jpg",
+                    src="./images/no-image.jpg",
+                    alt="пример 1"
+                )
+            a.components-page__m-gallery(
+                href="./images/examples/image-2.jpg",
+                data-modal-gallery="el-gallery"
+            ) 
+                img.lazy(
+                    data-src="./images/examples/image-2.jpg",
+                    src="./images/no-image.jpg",
+                    alt="пример 2"
+                )
+            a.components-page__m-gallery(
+                href="./images/examples/image-3.jpg",
+                data-modal-gallery="el-gallery"
+            ) 
+                img.lazy(
+                    data-src="./images/examples/image-3.jpg",
+                    src="./images/no-image.jpg",
+                    alt="пример 3"
+                )
+            a.components-page__m-gallery(
+                href="./images/examples/image-4.jpg",
+                data-modal-gallery="el-gallery"
+            ) 
+                img.lazy(
+                    data-src="./images/examples/image-4.jpg",
+                    src="./images/no-image.jpg",
+                    alt="пример 4"
+                )
+        .components-page__box.components-page__box--bg
+            span background-image
+        +modal
+            h2(style="color: black") Название модального окна

@@ -10,7 +10,7 @@
         classes: ''
     }
 
-mixin btn(props = defaultBtnProps)
+mixin btn(props = defaultBtnProps, ...dataset)
     -
         const checkProps = {
             type: props.type ? props.type : defaultBtnProps.type, 
@@ -28,7 +28,7 @@ mixin btn(props = defaultBtnProps)
             type=checkProps.type,
             target,
             class=`${checkProps.classes} ${checkProps.disabled ? 'disabled' : ''}`
-        )
+        )&attributes(...dataset)
             if checkProps.icon
                 if checkProps.positionIcon === 'left' && block
                     span.btn__icon
@@ -44,7 +44,7 @@ mixin btn(props = defaultBtnProps)
             href=checkProps.link,
             target=checkProps.target === "_self" ? "" : checkProps.target,
             class=checkProps.disabled ? `${checkProps.classes} disabled` : checkProps.classes
-        )
+        )&attributes(...dataset)
             if checkProps.icon
                 if checkProps.positionIcon === 'left' && block
                     span.btn__icon

@@ -1,48 +1,157 @@
-include ../../assets/ui/title
-include ../../assets/ui/checkbox
-include ../../assets/ui/radio
-include ../../assets/ui/btn
-include ../../assets/ui/input
-include ../../assets/ui/textarea
-include ../../assets/ui/select
+extends ../../assets/layouts/dev-layout
 
-main.ui-kit
-    h1.ui-kit__title UI Kit
-    .ui-kit__block-btns
-        a.ui-kit__btn(href="/index.html") Главная
-        a.ui-kit__btn(href="/pages.html") Страницы
-        a.ui-kit__btn(href="/components.html") Компоненты
-    .ui-kit__content
-        .ui-kit__box
-            +title('h1', 'Title H1').components__title
-            +title('h2', 'Title H2')
-            +title('h3', 'Title H3')
-            +title('h4', 'Title H4')
-        .ui-kit__box
+block vars
+    -
+        const props = {
+            title: 'UI-kit',
+        }
+
+block content
+    include ../../assets/ui/title
+    include ../../assets/ui/checkbox
+    include ../../assets/ui/radio
+    include ../../assets/ui/btn
+    include ../../assets/ui/input
+    include ../../assets/ui/textarea
+    include ../../assets/ui/select
+    include ../../assets/ui/counter 
+    include ../../assets/ui/range
+    include ../../assets/ui/bread-crumbs
+
+    .ui-kit-page
+        .ui-kit-page__box
+            +title({
+                tag: 'h1',
+                text: 'Title H1',
+                classes: 'components__title'
+            })
+            +title(({
+                text: 'Title H2'
+            }))
+            +title(({
+                tag: 'h3',
+                text: 'Title H3'
+            }))
+            +title(({
+                tag: 'h4',
+                text: 'Title H4'
+            }))
+        .ui-kit-page__box
             +checkbox
-            +checkbox({ text: 'Checkbox', checked: true, classes: 'components__checkbox' })
-            +checkbox({ text: 'Checkbox', disabled: true })
-        .ui-kit__box
+            +checkbox({ 
+                text: 'Checkbox', 
+                checked: true, 
+                classes: 'components__checkbox' 
+            })
+            +checkbox({ 
+                text: 'Checkbox', 
+                disabled: true 
+            })
+        .ui-kit-page__box
             +radio
-            +radio({ text: 'Radio', checked: true, classes: 'components__radio' })
-            +radio({ text: 'Radio', disabled: true })
-        .ui-kit__box
+            +radio({ 
+                text: 'Radio', 
+                checked: true, 
+                classes: 'components__radio' 
+            })
+            +radio({ 
+                text: 'Radio', 
+                disabled: true 
+            })
+        .ui-kit-page__box
             +btn
-            +btn({ icon: true, positionIcon: 'right' })
-                include ../../assets/icons/iconVite
+            +btn({ 
+                icon: true, 
+                positionIcon: 'right' 
+            })
+                include ../../assets/icon-system/icon-vite
             +btn({ icon: true })
-                include ../../assets/icons/iconVite
-            +btn({ type: 'link', name: 'Link btn', classes: 'btn--primary' })
-            +btn({ name: 'Button disabled', disabled: true })
-        .ui-kit__box
-            +input({ messageText: 'Подпись к полю', messageIsShow: true })
-            +input({ messageText: 'Сообщение об ошибке', classes: 'input--error' })
-            +input({ disabled: true })
-        .ui-kit__box
-            +textarea({ messageText: 'Подпись к полю', messageIsShow: true })
-            +textarea({ messageText: 'Сообщение об ошибке', classes: 'textarea--error' })
-            +textarea({ disabled: true })
-        .ui-kit__box
+                include ../../assets/icon-system/icon-vite
+            +btn({ 
+                type: 'link',
+                name: 'Link btn', 
+                classes: 'btn--primary' 
+                })
+            +btn({ 
+                name: 'Button disabled', 
+                disabled: true 
+            })
+        .ui-kit-page__box
+            +input({ 
+                messageText: 'Подпись к полю', 
+                messageIsShow: true 
+            })
+            +input({ 
+                messageText: 'Сообщение об ошибке', 
+                classes: 'input--error' 
+            })
+            +input({ 
+                disabled: true 
+            })
+        .ui-kit-page__box
+            +textarea({ 
+                messageText: 'Подпись к полю', 
+                messageIsShow: true 
+            })
+            +textarea({ 
+                messageText: 'Сообщение об ошибке', 
+                classes: 'textarea--error' 
+            })
+            +textarea({ 
+                disabled: true 
+            })
+        .ui-kit-page__box
             +select
-            +select({ activeIndex: 2 })
-            +select({ disabled: true })
+            +select({ 
+                activeIndex: 2 
+            })
+            +select({ 
+                disabled: true 
+            })
+        .ui-kit-page__box
+            +counter
+            +counter({ 
+                value: 1.5, 
+                step: 1.5, 
+                min: 1.5 
+            })
+            +counter({ 
+                disabled: true 
+            })
+        .ui-kit-page__box
+            +range
+            +range({ 
+                min: 0, 
+                max: 1000, 
+                start: 100, 
+                end: 430 
+            })
+            +range({ 
+                disabled: true 
+            })
+        .ui-kit-page__box
+            +bread-crumbs
+            +bread-crumbs({ 
+                items: [ 
+                    { 
+                        name: 'Главная', 
+                        link: '#' 
+                    }, 
+                    { 
+                        name: 'Страница 1', 
+                        link: '#' 
+                    }, 
+                    { 
+                        name: 'Страница 2', 
+                        link: '#' 
+                    }, 
+                    {
+                        name: 'Страница 3', 
+                        link: '#' 
+                    }, 
+                    { 
+                        name: 'Текущая страница', 
+                        link: '#' 
+                    }, 
+                ] 
+            })

@@ -3,8 +3,11 @@
 :root {
     --primary-bg-color: #242424;
     --primary-text-color: #fff;
-    --primary-border-color: #fff;
+    --primary-border-color: rgba(255, 255, 255, 0.1);
     --primary-hover-color: #9499ff;
+
+    --tr-time: 0.3s;
+    --primary-font: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
 }
 
 $primary-bg-color: var(--primary-bg-color);
@@ -14,8 +17,8 @@ $primary-border-color: var(--primary-border-color);
 
 // Fonts
 
-$primary-font: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+$primary-font: var(--primary-font);
 
 // Other
 
-$transition-time: 0.3s;
+$tr-time: var(--tr-time);

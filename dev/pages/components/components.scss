@@ -1,49 +1,59 @@
 @import '@/assets/styles/main';
 
-.components {
-    min-height: 100dvh;
-    padding: 2rem;
-
-    &__title {
-        font-size: 3.2em;
-        line-height: 1.1em;
-        color: rgba(255, 255, 255, 0.87);
-    }
-
-    &__content {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 50px;
-        margin-top: 100px;
-    }
+.components-page {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 50px;
 
     &__box {
         display: grid;
         align-content: start;
         grid-row-gap: 20px;
+
+        &--bg {
+            position: relative;
+            width: 400px;
+            height: 400px;
+            background-image: url('/images/examples/image-1.jpg');
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            border-radius: 10px;
+            overflow: hidden;
+
+            &::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: rgba(0, 0, 0, 0.6);
+            }
+
+            span {
+                position: absolute;
+                z-index: 1;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                font-size: 20px;
+                text-transform: uppercase;
+            }
+        }
     }
 
-    &__block-btns {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 20px;
-    }
+    &__m-gallery {
+        width: 300px;
+        height: 300px;
+        border-radius: 10px;
+        overflow: hidden;
 
-    &__btn {
-        padding: 0.6em 1.2em;
-        font-size: 1em;
-        font-weight: 500;
-        font-family: inherit;
-        border-radius: 8px;
-        border: 1px solid transparent;
-        text-decoration: none;
-        background-color: #1a1a1a;
-        cursor: pointer;
-        color: $primary-text-color;
-        transition: border-color $transition-time;
-
-        &:hover {
-            border-color: #fff;
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
         }
     }
 }

@@ -1,7 +1,8 @@
 -
     const defaultTextareaProps = {
         type: 'text', 
-        name: 'textarea', 
+        name: 'textarea',
+        title: 'Название поля',
         placeholder: 'Введите текст', 
         disabled: false,
         classes: '',
@@ -14,6 +15,7 @@ mixin textarea(props = defaultTextareaProps)
         const checkProps = {
             type: props.type ? props.type : defaultTextareaProps.type, 
             name: props.name ? props.name : defaultTextareaProps.name, 
+            title: props.title ? props.title : defaultTextareaProps.title,
             placeholder: props.placeholder ? props.placeholder : defaultTextareaProps.placeholder, 
             disabled: props.disabled ? props.disabled : defaultTextareaProps.disabled,
             classes: props.classes ? props.classes : defaultTextareaProps.classes,
@@ -24,6 +26,7 @@ mixin textarea(props = defaultTextareaProps)
     .textarea(
         class=`${checkProps.classes} ${checkProps.disabled ? 'disabled' : ''} ${checkProps.messageIsShow ? 'textarea--show-message' : ''}`
     )
+        span.textarea__title= checkProps.title
         textarea.textarea__field(
             type=checkProps.type,
             name=checkProps.name,

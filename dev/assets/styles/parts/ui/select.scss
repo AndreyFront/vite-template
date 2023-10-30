@@ -20,8 +20,7 @@
 
     &__name {
         display: grid;
-        color: #a7a7a7;
-        font-weight: 500;
+        color: #fff;
         font-size: 14px;
         padding-bottom: 8px;
     }
@@ -39,7 +38,7 @@
         grid-column-gap: 20px;
         height: 52px;
         padding: 0 16px;
-        border: 1px solid $primary-border-color;
+        border: 1px solid rgba(255, 255, 255, 0.1);
         background-color: transparent;
         border-radius: 8px;
         cursor: pointer;
@@ -47,13 +46,13 @@
 
     &__value {
         font-weight: 500;
-        color: $primary-text-color;
+        color: #fff;
     }
 
     &__icon {
         width: 24px;
         height: 24px;
-        transition: transform $transition-time;
+        transition: transform $tr-time;
     }
 
     &__body {
@@ -69,8 +68,8 @@
         opacity: 0;
         pointer-events: none;
         transition:
-            transform $transition-time,
-            opacity $transition-time;
+            transform $tr-time,
+            opacity $tr-time;
 
         &[data-simplebar] {
             position: absolute;
@@ -86,7 +85,7 @@
             color: #242424;
             font-weight: 500;
             cursor: pointer;
-            transition: opacity $transition-time;
+            transition: opacity $tr-time;
 
             &:hover {
                 opacity: 0.6;
