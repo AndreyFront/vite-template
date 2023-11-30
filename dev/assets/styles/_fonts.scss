@@ -1,6 +1,24 @@
-// @font-face {
-//     font-family: 'Name-font';
-//     font-style: normal;
-//     font-weight: normal;
-//     src: url("/fonts/folder/name-font.ttf") format("truetype");
-// }
+// PT Sans Narrow
+
+@font-face {
+    font-family: 'PT Sans Narrow';
+    font-style: normal;
+    font-weight: 700;
+    src: url("/fonts/PT-Sans-Narrow/PTSansNarrow-Bold.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: 'PT Sans Narrow';
+    font-style: normal;
+    font-weight: 400;
+    src: url("/fonts/PT-Sans-Narrow/PTSansNarrow-Regular.ttf") format("truetype");
+}
+
+// Open Sans
+
+@font-face {
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 400;
+    src: url("/fonts/Open-Sans/OpenSans-Regular.ttf") format("truetype");
+}

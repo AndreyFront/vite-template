@@ -21,6 +21,11 @@ export default defineConfig({
                 'ui-kit': resolve(__dirname, './dev/ui-kit.html'),
                 home: resolve(__dirname, './dev/home.html')
             },
+            output: {
+                entryFileNames: `assets/[name].js`,
+                chunkFileNames: `assets/[name].js`,
+                assetFileNames: `assets/[name].[ext]`
+            }
         },
     },
     resolve: {

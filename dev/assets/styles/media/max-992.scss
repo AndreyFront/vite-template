@@ -1,2 +1,9 @@
 @media screen and (max-width: 992px) {
+    .section {
+
+        &__head {
+            grid-auto-flow: row;
+            grid-row-gap: 16px;
+        }
+    }
 }

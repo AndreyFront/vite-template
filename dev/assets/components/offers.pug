@@ -1,0 +1,57 @@
+-
+    const defaultOffersProps = {
+        title: 'Мы предлагаем',
+        cards: [
+            {
+                title: 'Оснащение объектов',
+                desc: 'Гипермаркеты, магазины бытовой техники, фудкорты, рестораны, детские игровые комнаты, зоны отдыха - всё под контролем ГК “ЛЕГИС”. Задача компании - обеспечить спокойствие персонала и посетителей ТЦ',
+                image: './images/info-card/image-3.jpg'
+            },
+            {
+                title: 'Индивидуальный подход',
+                desc: 'Гипермаркеты, магазины бытовой техники, фудкорты, рестораны, детские игровые комнаты, зоны отдыха - всё под контролем ГК “ЛЕГИС”. Задача компании - обеспечить спокойствие персонала и посетителей ТЦ',
+                image: './images/info-card/image-4.jpg'
+            },
+            {
+                title: 'Заданные требования',
+                desc: 'Гипермаркеты, магазины бытовой техники, фудкорты, рестораны, детские игровые комнаты, зоны отдыха - всё под контролем ГК “ЛЕГИС”. Задача компании - обеспечить спокойствие персонала и посетителей ТЦ',
+                image: './images/info-card/image-5.jpg'
+            },
+        ],
+        classes: '',
+    }
+
+mixin offers(props = defaultOffersProps, ...dataset)
+    -
+        const checkProps = {
+            title: props.title ? props.title : defaultOffersProps.title,
+            cards: props.cards ? props.cards : defaultOffersProps.cards,
+            classes: props.classes ? props.classes : defaultOffersProps.classes,
+        }
+
+    include ../ui/title
+    include ../ui/btn
+    include ./info-card
+
+    section.offers.section(class=`${checkProps.classes}`, data-offers="main")&attributes(...dataset)
+        .m-container(data-offers="m-container")
+            .section__head 
+                +title({
+                    tag: 'h2',
+                    text: checkProps.title,
+                    classes: 'section__title'
+                })
+                +btn({
+                    name: 'Заказать',
+                    icon: true,
+                    positionIcon: 'right',
+                    classes: 'btn--theme--primary btn--rounding offers__btn'
+                }, {'data-offers': 'btn'})
+                    include ../icon-system/icon-arrow-right
+            .offers__wrap-cards
+                each card in checkProps.cards
+                    +info-card({
+                        title: card.title,
+                        desc: card.desc,
+                        image: card.image,
+                    })

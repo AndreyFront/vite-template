@@ -1,0 +1,50 @@
+-
+    const defaultIncludedProps = {
+        title: 'Комплексный проект охраны включает',
+        image: './images/intro-section.png',
+        points: [
+            'Постановка на пульт охраны и мониторинг',
+            'Установка тревожных датчиков и видеонаблюдения',
+            'Патрулирование территории',
+            'Контроль входов и выходов'
+        ],
+        classes: '',
+    }
+
+mixin included(props = defaultIncludedProps, ...dataset)
+    -
+        const checkProps = {
+            title: props.title ? props.title : defaultIncludedProps.title,
+            image: props.image ? props.image : defaultIncludedProps.image,
+            points: props.points ? props.points : defaultIncludedProps.points,
+            classes: props.classes ? props.classes : defaultIntroSectionProps.classes,
+        }
+
+    include ../ui/title
+    include ../ui/btn
+
+    section.included.section(class=`${checkProps.classes}`)&attributes(...dataset)
+        .included__wrap-content
+            .m-container
+                .included__content
+                    .included__wrap-info 
+                        +title({
+                            tag: 'h2',
+                            text: checkProps.title
+                        })
+                        ul.included__list-points.list-reset 
+                            each point in checkProps.points 
+                                li
+                                    +title({
+                                        tag: 'h3',
+                                        text: point
+                                    })
+                            li
+                                +title({
+                                    tag: 'h3',
+                                    text: '...'
+                                })
+                    .included__wrap-image 
+                        img.included__image.lazy(data-src="./images/group.png", src="./images/no-image.jpg", alt=checkProps.title)
+
+

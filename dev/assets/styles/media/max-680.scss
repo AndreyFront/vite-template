@@ -1,0 +1,14 @@
+@media screen and (max-width: 680px) {
+    .m-container {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+
+    .section {
+        padding: 48px 0;
+    
+        &__head {
+            padding-bottom: 32px;
+        }
+    }
+}

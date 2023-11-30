@@ -1,0 +1,41 @@
+-
+    const defaultTariffCardProps = {
+        name: 'Базовый',
+        popular: false,
+        advantages: [
+            '12 часов',
+            'Контракт свыше 1 месяца'
+        ],
+        classes: '',
+    }
+
+mixin tariff-card(props = defaultTariffCardProps, ...dataset)
+    -
+        const checkProps = {
+            name: props.name ? props.name : defaultTariffCardProps.name,
+            popular: props.popular ? props.popular : defaultTariffCardProps.popular,
+            advantages: props.advantages ? props.advantages : defaultTariffCardProps.advantages,
+            classes: props.classes ? props.classes : defaultTariffCardProps.classes,
+        }
+
+    include ../ui/btn
+
+    .tariff-card(class=`${checkProps.classes} ${checkProps.popular ? 'tariff-card--popular' : ''}`)&attributes(...dataset)
+        .tariff-card__head
+            span.tariff-card__name= checkProps.name
+        ul.tariff-card__advantages.list-reset 
+            each item in checkProps.advantages
+                li= item
+        .tariff-card__btns 
+            +btn({
+                type: 'link',
+                name: 'Подробнее',
+                icon: true,
+                positionIcon: 'right',
+                classes: 'btn--theme--tertiary btn--rounding'
+            })
+                include ../icon-system/icon-arrow-right
+            +btn({
+                name: 'Заказать',
+                classes: 'btn--theme--primary btn--rounding'
+            })

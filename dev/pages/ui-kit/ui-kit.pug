@@ -59,22 +59,36 @@ block content
                 disabled: true 
             })
         .ui-kit-page__box
-            +btn
+            +btn({
+                classes: 'btn--theme--primary btn--rounding'
+            })
             +btn({ 
                 icon: true, 
-                positionIcon: 'right' 
+                positionIcon: 'right',
+                classes: 'btn--theme--primary btn--rounding'
             })
                 include ../../assets/icon-system/icon-vite
-            +btn({ icon: true })
-                include ../../assets/icon-system/icon-vite
+            +btn({
+                classes: 'btn--theme--secondary btn--rounding'
+            })
             +btn({ 
+                icon: true, 
+                positionIcon: 'right',
+                classes: 'btn--theme--secondary btn--rounding'
+            })
+                include ../../assets/icon-system/icon-vite
+            +btn({
                 type: 'link',
-                name: 'Link btn', 
-                classes: 'btn--primary' 
-                })
+                name: 'Подробнее',
+                icon: true,
+                positionIcon: 'right',
+                classes: 'btn--theme--tertiary btn--rounding'
+            })
+                include ../../assets/icon-system/icon-arrow-right
             +btn({ 
                 name: 'Button disabled', 
-                disabled: true 
+                disabled: true,
+                classes: 'btn--theme--primary btn--rounding'
             })
         .ui-kit-page__box
             +input({ 

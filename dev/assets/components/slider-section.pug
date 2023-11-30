@@ -1,0 +1,67 @@
+-
+    const defaultSliderSectionProps = {
+        title: 'Подберём решения по охране под разные задачи',
+        subtitle: 'Позвоните нам, и наши эксперты предложат решение для обеспечения максимальной безопасности',
+        cards: [
+            {
+                title: 'Массовые мероприятия',
+                desc: 'Гипермаркеты, магазины бытовой техники, фудкорты, рестораны, детские игровые комнаты, зоны отдыха - всё под контролем ГК “ЛЕГИС”. Задача компании - обеспечить спокойствие персонала и посетителей ТЦ',
+                image: './images/info-card/image-2.jpg'
+            },
+            {
+                title: 'Коммерческие мероприятия',
+                desc: 'Гипермаркеты, магазины бытовой техники, фудкорты, рестораны, детские игровые комнаты, зоны отдыха - всё под контролем ГК “ЛЕГИС”. Задача компании - обеспечить спокойствие персонала и посетителей ТЦ',
+                image: './images/info-card/image-1.jpg'
+            },
+            {
+                title: 'Промышленно-складские помещения',
+                desc: 'Гипермаркеты, магазины бытовой техники, фудкорты, рестораны, детские игровые комнаты, зоны отдыха - всё под контролем ГК “ЛЕГИС”. Задача компании - обеспечить спокойствие персонала и посетителей ТЦ',
+                image: './images/info-card/image-6.jpg'
+            },
+            {
+                title: 'Торгово-развлекательные центры',
+                desc: 'Гипермаркеты, магазины бытовой техники, фудкорты, рестораны, детские игровые комнаты, зоны отдыха - всё под контролем ГК “ЛЕГИС”. Задача компании - обеспечить спокойствие персонала и посетителей ТЦ',
+                image: './images/info-card/image-2.jpg'
+            },
+        ],
+        classes: '',
+    }
+
+mixin slider-section(props = defaultSliderSectionProps, ...dataset)
+    -
+        const checkProps = {
+            title: props.title ? props.title : defaultSliderSectionProps.title,
+            subtitle: props.subtitle ? props.subtitle : defaultSliderSectionProps.subtitle,
+            cards: props.cards ? props.cards : defaultSliderSectionProps.cards,
+            classes: props.classes ? props.classes : defaultSliderSectionProps.classes,
+        }
+
+    include ../ui/title
+    include ../ui/btn
+    include ../ui/arrow
+    include ./info-card
+
+    section.slider-section.section(class=`${checkProps.classes}`, data-slider-section="main")&attributes(...dataset)
+        .m-container
+            .section__head 
+                +title({
+                    tag: 'h2',
+                    text: checkProps.title,
+                    classes: 'section__title'
+                })
+                span.section__subtitle= checkProps.subtitle
+            .slider-section__wrap-slider
+                .swiper.slider-section__slider(data-slider-section="slider")
+                    .swiper-wrapper
+                        each card in checkProps.cards
+                            .swiper-slide
+                                +info-card({
+                                    title: card.title,
+                                    desc: card.desc,
+                                    image: card.image,
+                                })
+                .slider-section__box-arrow 
+                    +arrow({}, {'data-slider-section': "btn-prev"})
+                    +arrow({
+                        orientation: 'next'
+                    }, {'data-slider-section': "btn-next"})

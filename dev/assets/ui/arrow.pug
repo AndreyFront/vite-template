@@ -1,0 +1,23 @@
+-
+    const defaultArrowProps = {
+        orientation: 'prev',
+        disabled: false,
+        classes: ''
+    }
+
+mixin arrow(props = defaultArrowProps, ...dataset)
+    -
+        const checkProps = {
+            orientation: props.orientation ? props.orientation : defaultArrowProps.orientation,
+            disabled: props.disabled ? props.disabled : defaultArrowProps.disabled,
+            classes: props.classes ? props.classes : defaultArrowProps.classes
+        }
+
+    button.arrow(class=`${checkProps.classes} ${checkProps.disabled ? 'disabled' : ''}`)&attributes(...dataset)
+        if (checkProps.orientation === 'prev')
+            include ../icon-system/icon-arrow-prev
+        if (checkProps.orientation === 'next')
+            include ../icon-system/icon-arrow-next
+        else 
+            if block
+                block

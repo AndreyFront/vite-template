@@ -1,0 +1,49 @@
+-
+    const defaultTaskSectionProps = {
+        title: 'выполняем задачи',
+        tasks: [
+            {
+                title: 'Контрольно-пропускной режим',
+                subtitle: 'Людей, сотрудников, перемещение автотранспорта и груза',
+                icon: 'barrier'
+            },
+            {
+                title: 'Обеспечение порядка на вверенной территории',
+                subtitle: 'квалифицированных сотрудников в штате',
+                icon: 'jacket'
+            },
+            {
+                title: 'Обход и проверка территории и помещений, контроль и реагирование',
+                subtitle: 'предотвращенных краж',
+                icon: 'camera'
+            },
+        ],
+        classes: '',
+    }
+
+mixin task-section(props = defaultTaskSectionProps, ...dataset)
+    -
+        const checkProps = {
+            title: props.title ? props.title : defaultTaskSectionProps.title,
+            tasks: props.tasks ? props.tasks : defaultTaskSectionProps.tasks,
+            classes: props.classes ? props.classes : defaultTaskSectionProps.classes,
+        }
+
+    include ../ui/title
+
+    section.task-section.section(class=`${checkProps.classes}`)&attributes(...dataset)
+        .m-container
+            .section__head 
+                +title({
+                    tag: 'h2',
+                    text: checkProps.title,
+                    classes: 'section__title'
+                })
+            .task-section__wrap-cards
+                each task in checkProps.tasks
+                    .task-section__task 
+                        .task-section__task-block-icon 
+                            image.task-section__task-icon(src=`./icons/${task.icon}.svg`)
+                        .task-section__task-info 
+                            soan.task-section__task-title= task.title
+                            span.task-section__task-subtitle= task.subtitle

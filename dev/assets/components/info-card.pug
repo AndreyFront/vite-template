@@ -1,0 +1,35 @@
+-
+    const defaultInfoCardProps = {
+        title: 'Название',
+        desc: 'Тектс с информацией ...',
+        image: '/images/no-image.jpg',
+        classes: '',
+    }
+
+mixin info-card(props = defaultInfoCardProps, ...dataset)
+    -
+        const checkProps = {
+            title: props.title ? props.title : defaultInfoCardProps.title,
+            desc: props.desc ? props.desc : defaultInfoCardProps.desc,
+            image: props.image ? props.image : defaultInfoCardProps.image,
+            classes: props.classes ? props.classes : defaultInfoCardProps.classes,
+        }
+
+    include ../ui/btn
+
+    .info-card(class=`${checkProps.classes}`, data-info-card="main")&attributes(...dataset)
+        .info-card__content 
+            img.info-card__image.lazy(data-src=checkProps.image, src="./images/no-image.jpg", alt=checkProps.title)
+            button.info-card__btn-toggle(data-info-card="btn-toggle")
+                include ../icon-system/icon-plus
+            .info-card__wrap-info
+                .info-card__block-desc(data-custom-scrollbar)
+                    p= checkProps.desc
+                +btn({
+                    name: 'Заказать',
+                    icon: true,
+                    positionIcon: 'right',
+                    classes: 'btn--theme--secondary btn--rounding'
+                })
+                    include ../icon-system/icon-arrow-right
+        span.info-card__title= checkProps.title

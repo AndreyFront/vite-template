@@ -1,0 +1,37 @@
+.arrow {
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    width: 56px;
+    height: 56px;
+    border-radius: 100px;
+    background-color: $base-bg-sec;
+    cursor: pointer;
+    border: 1px solid transparent;
+    transition: opacity $tr-time, border-color $tr-time;
+
+    &:hover {}
+
+    &:hover .arrow__icon use {}
+
+    &[disabled] {
+        pointer-events: none;
+        opacity: 0.6;
+    }
+
+    &__icon {
+        width: 24px;
+        height: 24px;
+
+        use {
+            transition: fill $tr-time;
+        }
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .arrow {
+        width: 48px;
+        height: 48px;
+    }
+}

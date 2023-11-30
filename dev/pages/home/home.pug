@@ -1,7 +1,23 @@
 extends ../../assets/layouts/main-layout.pug
 
 block content
+    include ../../assets/components/intro-section
+    include ../../assets/components/slider-section
+    include ../../assets/components/call-section
+    include ../../assets/components/cost-services
+    include ../../assets/components/stages-protection
+    include ../../assets/components/included
+    include ../../assets/components/task-section
+    include ../../assets/components/offers
+    include ../../assets/components/customers
+
     main.page.home-page
-        section
-            .m-container
-                h1 Home Content
+        +intro-section()
+        +slider-section()
+        +call-section()
+        +cost-services()
+        +stages-protection()
+        +included()
+        +task-section()
+        +offers()
+        +customers()

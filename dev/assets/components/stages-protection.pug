@@ -1,0 +1,61 @@
+-
+    const defaultStagesProtectionProps = {
+        title: 'Этапы организации защиты',
+        subtitle: 'Позвоните нам, и наши эксперты предложат решение для обеспечения максимальной безопасности',
+        stages: [
+            {
+                title: 'Заявка',
+                desc: 'Внедрение комплексной системы безопасности для крупнейшего регионального банка страны — АКБ «Приморье»',
+            },
+            {
+                title: 'Консультация',
+                desc: 'Внедрение комплексной системы безопасности для крупнейшего регионального банка страны — АКБ «Приморье»',
+            },
+            {
+                title: 'Аудит объекта',
+                desc: 'Внедрение комплексной системы безопасности для крупнейшего регионального банка страны — АКБ «Приморье»',
+            },
+            {
+                title: 'Комплексный проект',
+                desc: 'Внедрение комплексной системы безопасности для крупнейшего регионального банка страны — АКБ «Приморье»',
+            },
+            {
+                title: 'Договор',
+                desc: 'Внедрение комплексной системы безопасности для крупнейшего регионального банка страны — АКБ «Приморье»',
+            },
+            {
+                title: 'Монтаж',
+                desc: 'Внедрение комплексной системы безопасности для крупнейшего регионального банка страны — АКБ «Приморье»',
+            },
+        ],
+        classes: '',
+    }
+
+mixin stages-protection(props = defaultStagesProtectionProps, ...dataset)
+    -
+        const checkProps = {
+            title: props.title ? props.title : defaultStagesProtectionProps.title,
+            subtitle: props.subtitle ? props.subtitle : defaultStagesProtectionProps.subtitle,
+            stages: props.stages ? props.stages : defaultStagesProtectionProps.stages,
+            classes: props.classes ? props.classes : defaultStagesProtectionProps.classes,
+        }
+
+    include ../ui/title
+
+    section.stages-protection.section(class=`${checkProps.classes}`)&attributes(...dataset)
+        .m-container
+            .stages-protection__content
+                .section__head 
+                    +title({
+                        tag: 'h2',
+                        text: checkProps.title,
+                        classes: 'section__title'
+                    })
+                    span.section__subtitle= checkProps.subtitle
+                .stages-protection__wrap-cards
+                    each stage, index in checkProps.stages
+                        .stages-protection__stage 
+                            span.stages-protection__stage-number= index + 1
+                            .stages-protection__stage-info
+                                span.stages-protection__stage-title= stage.title
+                                span.stages-protection__stage-desc= stage.desc

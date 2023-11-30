@@ -1,10 +1,16 @@
 @import '@/assets/styles/main.scss';
 
-.home-page {
-    display: grid;
-    align-items: center;
+@import '@/assets/styles/parts/components/intro-section';
+@import '@/assets/styles/parts/components/slider-section';
+@import '@/assets/styles/parts/components/info-card';
+@import '@/assets/styles/parts/components/call-section';
+@import '@/assets/styles/parts/components/cost-services';
+@import '@/assets/styles/parts/components/tab-bar';
+@import '@/assets/styles/parts/components/tariff-card';
+@import '@/assets/styles/parts/components/stages-protection';
+@import '@/assets/styles/parts/components/task-section';
+@import '@/assets/styles/parts/components/offers';
+@import '@/assets/styles/parts/components/included';
+@import '@/assets/styles/parts/components/customers';
 
-    h1 {
-        font-size: 3em;
-    }
-}
+.home-page {}

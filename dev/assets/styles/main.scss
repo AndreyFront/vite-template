@@ -11,17 +11,17 @@
 }
 
 :root {
-    font-family: $primary-font, sans-serif;
+    font-family: $primary-font;
     font-weight: 400;
     font-size: 16px;
-    line-height: 1.2em;
-    color: #fff;
+    line-height: 1.5em;
+    color: $primary-text;
 }
 
 html,
 body {
     width: 100%;
-    background-color: $primary-bg-color;
+    background-color: $base-bg-primary;
 }
 
 #app {

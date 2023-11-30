@@ -1,0 +1,144 @@
+.tariff-card {
+    display: grid;
+    grid-row-gap: 40px;
+    align-content: start;
+    padding: 24px;
+    border-radius: 8px;
+    background-color: $base-bg-sec;
+
+    &--popular {
+        position: relative;
+        color: $text-primary-alt;
+        background-color: $base-brand;
+
+        &::before {
+            content: 'популярный';
+            position: absolute;
+            display: grid;
+            align-items: center;
+            justify-content: center;
+            top: 0;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            height: 28px;
+            padding: 0 16px;
+            background-color: $base-brand;
+            border: 1px solid rgba(255, 255, 255, 0.20);
+            border-radius: 100px;
+            font-size: 12px;
+            font-weight: 400;
+            line-height: 1.66em;
+            letter-spacing: 0.48px;
+            text-transform: uppercase;
+        }
+
+        .btn {
+
+            &--theme--tertiary {
+                background-color: rgba(255, 255, 255, 0.10);
+
+                .btn {
+
+                    &__text {
+                        color: $text-primary-alt;
+                    }
+
+                    &__icon {
+                        path {
+                            fill: $base-bg-primary;
+                        }
+                    }
+                }
+            }
+
+            &--theme--primary {
+                background-color: $base-bg-primary;
+
+                &:hover {
+                    background-color: $primary-text;
+
+                    .btn__text {
+                        color: $text-primary-alt;
+                    }
+                }
+                
+                .btn__text {
+                    color: $text-brand;
+                }
+            }
+        }
+
+        .tariff-card {
+
+            &__head {
+                border-bottom-color: rgba(255, 255, 255, 0.10);
+            }
+
+            &__advantages li::before {
+                background-image: url('/icons/tick-marker-light.svg');
+            }
+        }
+    }
+
+    .btn {
+        width: 100%;
+        height: 44px;
+    }
+
+    &__head {
+        text-align: center;
+        padding-bottom: 20px;
+        border-bottom: 1px solid $base-border;
+    }
+
+    &__name {
+        font-family: $secondary-font;
+        font-size: 28px;
+        font-weight: 700;
+        line-height: 1.14em;
+        letter-spacing: -0.56px;
+    }
+
+    &__advantages {
+        display: grid;
+        grid-row-gap: 6px;
+
+        li {
+            position: relative;
+            padding-left: 30px;
+
+            &:before {
+                content: '';
+                position: absolute;
+                top: -5px;
+                left: 0;
+                width: 30px;
+                height: 30px;
+                background-image: url('/icons/tick-marker.svg');
+                background-repeat: no-repeat;
+                background-size: contain;
+                background-position: center;
+            }
+        }
+    }
+
+    &__btns {
+        display: grid;
+        grid-row-gap: 16px;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .tariff-card {
+        padding: 20px;
+        grid-row-gap: 24px;
+
+        &__name {
+            font-size: 24px;
+        }
+
+        &__btns {
+            grid-row-gap: 8px;
+        }
+    }
+}

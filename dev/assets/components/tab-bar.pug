@@ -1,0 +1,29 @@
+-
+    const defaultTabBarProps = {
+        tabs: [
+            'Физическая охрана объектов',
+            'Вооруженная охрана объектов',
+            'Личная охрана',
+            'Охрана мероприятий'
+        ],
+        active: 0,
+        classes: '',
+    }
+
+mixin tab-bar(props = defaultTabBarProps, ...dataset)
+    -
+        const checkProps = {
+            tabs: props.tabs ? props.tabs : defaultTabBarProps.tabs,
+            active: props.active ? props.active : defaultTabBarProps.active,
+            classes: props.classes ? props.classes : defaultTabBarProps.classes,
+        }
+
+    include ../ui/title
+    include ../ui/btn
+
+    .tab-bar(class=`${checkProps.classes}`, data-tab-bar="main")&attributes(...dataset)
+        .swiper(data-tab-bar="slider")
+            .swiper-wrapper
+                each tab, index in checkProps.tabs
+                    .swiper-slide 
+                        button.tab-bar__tab.btn-reset(class=`${index === checkProps.active ? 'active' : ''}`, data-tab-bar="tab")= tab

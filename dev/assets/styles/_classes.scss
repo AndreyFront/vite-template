@@ -3,7 +3,7 @@
 
 .m-container {
     width: 100%;
-    max-width: 1440px;
+    max-width: 1398px;
     padding-left: 20px;
     padding-right: 20px;
     margin-left: auto;
@@ -42,4 +42,26 @@ a {
     padding: 0;
     margin: 0;
     border: none;
+}
+
+.section {
+    padding: 120px 0;
+
+    &__head {
+        display: grid;
+        grid-auto-flow: column;
+        grid-column-gap: 20px;
+        justify-content: space-between;
+        align-items: start;
+        padding-bottom: 60px;
+    }
+
+    &__subtitle {
+        max-width: 325px;
+        color: $text-sec;
+    }
+
+    &__title {
+        max-width: 691px;
+    }
 }

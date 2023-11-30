@@ -1,0 +1,41 @@
+.slider-section {
+    overflow: hidden;
+
+    &__wrap-slider {
+        display: grid;
+        grid-template-columns: minmax(10px, 1fr);
+        justify-items: center;
+        grid-row-gap: 40px;
+    }
+
+    &__slider {
+        width: 100%;
+        
+        &.swiper {
+            overflow: visible;
+        }
+
+        .swiper-slide {
+            width: max-content;
+        }
+    }
+
+    &__box-arrow {
+        display: flex;
+        gap: 16px;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .slider-section {
+
+        &__wrap-slider {
+            grid-row-gap: 24px;
+        }
+
+        &__box-arrow {
+            width: 100%;
+            justify-content: space-between;
+        }
+    }
+}

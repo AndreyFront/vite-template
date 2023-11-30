@@ -1,0 +1,37 @@
+-
+    const defaultCallSectionProps = {
+        title: 'Позвоните нам, и наши эксперты предложат решение для обеспечения максимальной безопасности',
+        subtitle: 'Задайте ваш вопрос сейчас и получите ответ',
+        classes: '',
+    }
+
+mixin call-section(props = defaultCallSectionProps, ...dataset)
+    -
+        const checkProps = {
+            title: props.title ? props.title : defaultCallSectionProps.title,
+            subtitle: props.subtitle ? props.subtitle : defaultCallSectionProps.subtitle,
+            classes: props.classes ? props.classes : defaultCallSectionProps.classes,
+        }
+
+    include ../ui/btn
+    include ../ui/title
+
+    section.call-section(class=`${checkProps.classes}`)&attributes(...dataset)
+        .m-container
+            .call-section__content
+                picture.call-section__bg
+                    source(data-srcset="./images/call-section-bg-mob.png", srcset="./images/no-image.jpg", media="(max-width: 768px)")
+                    img.lazy(data-src="./images/call-section-bg.png", src="./images/no-image.jpg", alt="Задний фон")
+                .call-section__block-title 
+                    +title({
+                        text: checkProps.title,
+                    })
+                    span.call-section__subtitle= checkProps.subtitle
+                +btn({
+                    name: 'Позвонить',
+                    icon: true,
+                    positionIcon: 'right',
+                    classes: 'btn--theme--secondary btn--rounding'
+                })
+                    include ../icon-system/icon-phone
+

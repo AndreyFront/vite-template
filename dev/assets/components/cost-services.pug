@@ -1,0 +1,149 @@
+-
+    const defaultCostServicesProps = {
+        title: 'Стоимость услуг физической охраны',
+        tariffs: [
+            [
+                {
+                    name: 'Базовый',
+                },
+                {
+                    name: 'Стандарт',
+                    advantages: [
+                        '24 часа',
+                        'Контракт свыше 1 месяца'
+                    ],
+                },
+                {
+                    name: 'Премиум',
+                    popular: true,
+                    advantages: [
+                        '24 часа',
+                        'Контракт свыше 1 месяца с проживанием'
+                    ],
+                },
+                {
+                    name: 'Максимум',
+                    advantages: [
+                        '24 часа',
+                        'Контракт менее 1 месяца'
+                    ],
+                },
+            ],
+            [
+                {
+                    name: 'Базовый',
+                },
+                {
+                    name: 'Стандарт',
+                    popular: true,
+                    advantages: [
+                        '24 часа',
+                        'Контракт свыше 1 месяца'
+                    ],
+                },
+                {
+                    name: 'Премиум',
+                    advantages: [
+                        '24 часа',
+                        'Контракт свыше 1 месяца с проживанием'
+                    ],
+                },
+                {
+                    name: 'Максимум',
+                    advantages: [
+                        '24 часа',
+                        'Контракт менее 1 месяца'
+                    ],
+                },
+            ],
+            [
+                {
+                    name: 'Базовый',
+                    popular: true,
+                },
+                {
+                    name: 'Стандарт',
+                    advantages: [
+                        '24 часа',
+                        'Контракт свыше 1 месяца'
+                    ],
+                },
+                {
+                    name: 'Премиум',
+                    advantages: [
+                        '24 часа',
+                        'Контракт свыше 1 месяца с проживанием'
+                    ],
+                },
+                {
+                    name: 'Максимум',
+                    advantages: [
+                        '24 часа',
+                        'Контракт менее 1 месяца'
+                    ],
+                },
+            ],
+            [
+                {
+                    name: 'Базовый',
+                },
+                {
+                    name: 'Стандарт',
+                    advantages: [
+                        '24 часа',
+                        'Контракт свыше 1 месяца'
+                    ],
+                },
+                {
+                    name: 'Премиум',
+                    advantages: [
+                        '24 часа',
+                        'Контракт свыше 1 месяца с проживанием'
+                    ],
+                },
+                {
+                    name: 'Максимум',
+                    popular: true,
+                    advantages: [
+                        '24 часа',
+                        'Контракт менее 1 месяца'
+                    ],
+                },
+            ],
+        ],
+        active: 0,
+        classes: '',
+    }
+
+mixin cost-services(props = defaultCostServicesProps, ...dataset)
+    -
+        const checkProps = {
+            title: props.title ? props.title : defaultCostServicesProps.title,
+            tariffs: props.tariffs ? props.tariffs : defaultCostServicesProps.tariffs,
+            active: props.active ? props.active : defaultCostServicesProps.active,
+            classes: props.classes ? props.classes : defaultCostServicesProps.classes,
+        }
+
+    include ../ui/title
+    include ../ui/btn
+    include ./tab-bar
+    include ./tariff-card
+
+    section.cost-services.section(class=`${checkProps.classes}`, data-cost-services="main")&attributes(...dataset)
+        .m-container
+            .cost-services__header
+                +title({
+                    text: checkProps.title
+                })
+                +tab-bar({
+                    active: checkProps.active
+                })
+            .cost-services__wrap-cards
+                each block, index in checkProps.tariffs
+                    .cost-services__inner-cards(class=`${index === checkProps.active ? 'active' : ''}`, data-cost-services="inner-cards")
+                        each tariff in block
+                            +tariff-card({
+                                name: tariff.name,
+                                popular: tariff.popular,
+                                advantages: tariff.advantages
+                            })

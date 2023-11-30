@@ -1,0 +1,82 @@
+-
+    const defaultCustomersProps = {
+        title: 'Нам доверяют крупные компании',
+        customers: [
+            {
+                image: './images/customers/obedenennaya-energeticheskaya-kompaniya.png',
+                alt: 'объедененная энергетическая компания'
+            },
+            {
+                image: './images/customers/vostochnyj-bank.png',
+                alt: 'восточный банк'
+            },
+            {
+                image: './images/customers/ministerstvo-inostrannyh-del.png',
+                alt: 'министерство иностранных дел'
+            },
+            {
+                image: './images/customers/cum.png',
+                alt: 'цум'
+            },
+            {
+                image: './images/customers/pik-arenda.png',
+                alt: 'пик аренда'
+            },
+            {
+                image: './images/customers/bank-rossii.png',
+                alt: 'банк россии'
+            },
+            {
+                image: './images/customers/infiniti.png',
+                alt: 'infiniti'
+            },
+            {
+                image: './images/customers/x5-retail-group.png',
+                alt: 'x5 retail group'
+            },
+            {
+                image: './images/customers/rolf-centr.png',
+                alt: 'рольф центр'
+            },
+            {
+                image: './images/customers/mvideo.png',
+                alt: 'мвидео'
+            },
+            {
+                image: './images/customers/kfc.png',
+                alt: 'kfc'
+            },
+            {
+                image: './images/customers/teremok.png',
+                alt: 'теремок'
+            },
+            {
+                image: './images/customers/mercedes-benz.png',
+                alt: 'mercedes-benz'
+            },
+        ],
+        classes: '',
+    }
+
+mixin customers(props = defaultCustomersProps, ...dataset)
+    -
+        const checkProps = {
+            title: props.title ? props.title : defaultCustomersProps.title,
+            customers: props.customers ? props.customers : defaultCustomersProps.customers,
+            classes: props.classes ? props.classes : defaultCustomersProps.classes,
+        }
+
+    include ../ui/title
+
+    section.customers.section(class=`${checkProps.classes}`)&attributes(...dataset)
+        .m-container
+            .section__head 
+                +title({
+                    tag: 'h2',
+                    text: checkProps.title,
+                    classes: 'section__title'
+                })
+            ul.list-reset 
+                each customer in checkProps.customers
+                    li 
+                        img(src=customer.image, alt=customer.alt)

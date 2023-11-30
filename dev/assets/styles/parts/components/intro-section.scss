@@ -1,0 +1,157 @@
+.intro-section {
+
+    &__content {
+        display: grid;
+        grid-template-columns: 640px auto;
+        justify-content: space-between;
+        height: 550px;
+        overflow: hidden;
+        border-radius: 8px;
+        background-color: $base-bg-sec;
+    }
+
+    &__wrap-info {
+        display: grid;
+        align-content: space-between;
+        padding: 40px;
+    }
+
+    &__block-info {
+        display: grid;
+        grid-row-gap: 9px;
+    }
+
+    &__subtitle {
+        max-width: 309px;
+        color: $text-sec;
+    }
+
+    &__block-image {
+        height: 100%;
+        width: 639px;
+    }
+
+    &__image,
+    &__image img,
+    &__image source {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center left;
+    }
+
+    &__advantages {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(200px, 1fr));
+        grid-gap: 8px;
+        margin-top: 16px;
+        overflow-x: auto;
+
+        li {
+            display: grid;
+            grid-row-gap: 17px;
+            align-content: start;
+            padding: 16px;
+            border-radius: 8px;
+            background-color: $base-bg-sec;
+        }
+    }
+
+    &__advantage-title {
+        font-family: $secondary-font;
+        font-size: 64px;
+        line-height: 1em;
+        font-weight: 700;
+        letter-spacing: -1.28px;
+        text-transform: uppercase;
+    }
+
+    &__advantage-subtitle {
+        font-size: 14px;
+        line-height: 1.42em;
+        color: $text-sec;
+    }
+}
+
+@media screen and (max-width: 1200px) {
+
+    .intro-section {
+
+        &__content {
+            grid-template-columns: 500px auto;
+            height: 490px;
+        }
+
+        &__block-image {
+            width: 550px;
+        }
+    }
+}
+
+@media screen and (max-width: 991px) {
+    .intro-section {
+
+        &__content {
+            grid-template-columns: 420px auto;
+            height: 480px;
+        }
+
+        &__advantages {
+            grid-template-columns: repeat(2, minmax(200px, 1fr));
+
+            li {
+                grid-row-gap: 8px;
+            }
+        }
+
+        &__advantage-title {
+            font-size: 48px;
+        }
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .intro-section {
+
+        &__content {
+            grid-template-columns: 1fr;
+            grid-row-gap: 32px;
+            height: auto;
+        }
+
+        &__wrap-info {
+            grid-row-gap: 24px;
+        }
+
+        &__block-image {
+            height: 400px;
+            width: 400px;
+            margin-left: auto;
+        }
+
+        &__image,
+        &__image img,
+        &__image source {
+            object-position: top right;
+        }
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .intro-section {
+
+        &__wrap-info {
+            padding: 24px 24px 0 24px;
+        }
+
+        &__block-image {
+            height: 325px;
+            width: 325px;
+            margin-left: auto;
+        }
+
+        &__advantages {
+            grid-template-columns: 1fr;
+        }
+    }
+}

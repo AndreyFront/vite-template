@@ -1,23 +1,39 @@
 // Colors
 
 :root {
-    --primary-bg-color: #242424;
-    --primary-text-color: #fff;
-    --primary-border-color: rgba(255, 255, 255, 0.1);
-    --primary-hover-color: #9499ff;
+    --base-bg-primary: #fff;
+    --primary-text: #22272E;
+    --text-sec: #89959E;
+    --base-brand: #54B367;
+    --base-brand-s: #4FD262;
+    --brand-hover: #30be45;
+    --text-brand: #54B367;
+    --text-t: #3C3C3C;
+    --base-bg-sec: #F9F9FA;
+    --text-primary-alt: #fff;
+    --base-border: #DCE0E8;
 
-    --tr-time: 0.3s;
-    --primary-font: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+    --tr-time: 0.4s;
+    --primary-font: 'Open Sans', sans-serif;
+    --secondary-font: 'PT Sans Narrow', sans-serif;
 }
 
-$primary-bg-color: var(--primary-bg-color);
-$primary-text-color: var(--primary-text-color);
-$primary-hover-color: var(--primary-hover-color);
-$primary-border-color: var(--primary-border-color);
+$base-bg-primary: var(--base-bg-primary);
+$primary-text: var(--primary-text);
+$text-sec: var(--text-sec);
+$base-brand: var(--base-brand);
+$base-brand-s: var(--base-brand-s);
+$brand-hover: var(--brand-hover);
+$text-brand: var(--text-brand);
+$text-t: var(--text-t);
+$base-bg-sec: var(--base-bg-sec);
+$text-primary-alt: var(--text-primary-alt);
+$base-border: var(--base-border);
 
 // Fonts
 
 $primary-font: var(--primary-font);
+$secondary-font: var(--secondary-font);
 
 // Other
 

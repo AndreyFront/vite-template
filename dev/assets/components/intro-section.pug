@@ -1,0 +1,70 @@
+-
+    const defaultIntroSectionProps = {
+        title: 'Физическая охрана',
+        subtitle: 'Компания Крона осуществляет охрану объектов любой сложности',
+        image: {
+            desc: './images/intro-section.png',
+            mob: './images/intro-section-mob.png'
+        },
+        advantages: [
+            {
+                title: '52',
+                subtitle: 'лет опыт работы на рынке охранных услуг'
+            },
+            {
+                title: '500',
+                subtitle: 'квалифицированных сотрудников в штате'
+            },
+            {
+                title: '6000+',
+                subtitle: 'предотвращенных краж'
+            },
+            {
+                title: '3000+',
+                subtitle: 'клиентов доверяют нам'
+            },
+        ],
+        classes: '',
+    }
+
+mixin intro-section(props = defaultIntroSectionProps, ...dataset)
+    -
+        const checkProps = {
+            title: props.title ? props.title : defaultIntroSectionProps.title,
+            subtitle: props.subtitle ? props.subtitle : defaultIntroSectionProps.subtitle,
+            image: props.image ? props.image : defaultIntroSectionProps.image,
+            advantages: props.advantages ? props.advantages : defaultIntroSectionProps.advantages,
+            classes: props.classes ? props.classes : defaultIntroSectionProps.classes,
+        }
+
+    include ../ui/title
+    include ../ui/btn
+
+    section.intro-section(class=`${checkProps.classes}`)&attributes(...dataset)
+        .m-container
+            .intro-section__content
+                .intro-section__wrap-info 
+                    .intro-section__block-info 
+                        +title({
+                            tag: 'h1',
+                            text: checkProps.title
+                        })
+                        span.intro-section__subtitle= checkProps.subtitle
+                    +btn({
+                        name: 'Заказать защиту',
+                        icon: true,
+                        positionIcon: 'right',
+                        classes: 'btn--theme--primary btn--rounding'
+                    })
+                        include ../icon-system/icon-arrow-right
+                .intro-section__block-image
+                    picture.intro-section__image
+                        source(data-srcset=checkProps.image.mob, srcset="./images/no-image.jpg", media="(max-width: 768px)")
+                        img.lazy(data-src=checkProps.image.desc, src="./images/no-image.jpg", alt=checkProps.title)
+            ul.intro-section__advantages.list-reset
+                if (checkProps.advantages.length > 0)
+                    each val in checkProps.advantages
+                        li 
+                            span.intro-section__advantage-title= val.title
+                            span.intro-section__advantage-subtitle= val.subtitle
+
